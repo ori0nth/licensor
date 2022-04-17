@@ -1,0 +1,5 @@
+rootProject.name = "licensor"
+include 'licensor-core'
+include 'licensor-util'
+include 'licensor-bootstrap'
+
