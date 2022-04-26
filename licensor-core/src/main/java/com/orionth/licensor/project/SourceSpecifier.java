@@ -1,11 +1,16 @@
 package com.orionth.licensor.project;
 
-public class SourceSpecifier {
+import com.orionth.licensor.lang.Language;
+import com.orionth.licensor.license.License;
 
-    protected String action;
+import java.nio.file.Path;
 
-    protected String pathMatcher;
+public interface SourceSpecifier {
 
-    protected String license;
+    boolean governs(Path path);
+
+    Language languageOf(Path path);
+
+    License licenseOf(Path path);
 
 }

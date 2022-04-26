@@ -1,0 +1,10 @@
+# General Project Settings
+project:
+  # TODO
+
+# Processing Settings
+process:
+
+  # The amount of threads to use
+  # when processing the files.
+  threads: 8

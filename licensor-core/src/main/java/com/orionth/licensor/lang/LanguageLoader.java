@@ -23,6 +23,8 @@ public class LanguageLoader {
 
     protected Map<String, Language> languagesByAlias = new HashMap<>();
 
+    protected Map<String, Language> languagesByExt = new HashMap<>();
+
     protected Map<String, CommentFactory> commentFactories = new HashMap<>();
 
     public LanguageLoader withFolder(Path p) {
@@ -46,6 +48,10 @@ public class LanguageLoader {
 
     public Map<String, Language> getLanguagesByAlias() {
         return languagesByAlias;
+    }
+
+    public Map<String, Language> getLanguagesByExt() {
+        return languagesByExt;
     }
 
     public Map<String, CommentFactory> getCommentFactories() {
@@ -78,6 +84,12 @@ public class LanguageLoader {
                             name -> commentFactories.get(name)
                     )
             );
+
+            // register language
+            for (String alias : aliases)
+                languagesByAlias.put(alias, lang);
+            for (String ext : extensions)
+                languagesByExt.put(ext, lang);
 
             // put comment factory
             commentFactories.put(langName, lang.commentFactory());
